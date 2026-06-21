@@ -94,38 +94,38 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
   usb { host = "1-2" }
   
   hostpci {
-    device = "0000:06:00.0"
+    id     = "0000:06:00.0"
     pcie   = true
     xvga   = true
   }
   
   hostpci {
-    device = "0000:01:00"
+    id     = "0000:01:00"
     pcie   = true
   }
   
   hostpci {
-    device = "0000:06:00.1"
+    id     = "0000:06:00.1"
     pcie   = true
   }
   
   hostpci {
-    device = "0000:06:00.2"
+    id     = "0000:06:00.2"
     pcie   = true
   }
   
   hostpci {
-    device = "0000:06:00.5"
+    id     = "0000:06:00.5"
     pcie   = true
   }
   
   hostpci {
-    device = "0000:06:00.6"
+    id     = "0000:06:00.6"
     pcie   = true
   }
   
   hostpci {
-    device = "0000:03:00.0"
+    id     = "0000:03:00.0"
     pcie   = true
   }
   

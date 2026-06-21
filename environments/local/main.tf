@@ -20,7 +20,7 @@ module "ubuntu_server_vm" {
   source         = "../../modules/ubuntu_server"
   node_name      = var.node_name
   vm_id          = 101
-  vm_name        = "ubuntu_server"
+  vm_name        = "ubuntu-server"
   ip_address     = "192.168.1.10/24"
   gateway        = "192.168.1.1"
   network_bridge = "vmbr0"
@@ -32,7 +32,7 @@ module "ubuntu_desktop_vm" {
   source         = "../../modules/ubuntu_desktop"
   node_name      = var.node_name
   vm_id          = 102
-  vm_name        = "ubuntu_desktop"
+  vm_name        = "ubuntu-desktop"
   ip_address     = "192.168.1.11/24"
   gateway        = "192.168.1.1" 
   network_bridge = "vmbr0"
