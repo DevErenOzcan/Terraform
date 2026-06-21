@@ -36,6 +36,11 @@ variable "iso_file_id" {
   type = string
 }
 
+variable "vm_password" {
+  type      = string
+  sensitive = true
+}
+
 resource "proxmox_virtual_environment_vm" "ubuntu_server" {
   name        = var.vm_name
   node_name   = var.node_name
@@ -67,6 +72,12 @@ resource "proxmox_virtual_environment_vm" "ubuntu_server" {
   }
   
   initialization {
+    # SSH key yerine şimdilik sadece şifre ile giriş izni veriyoruz
+    user_account {
+      username = "eren"
+      password = var.vm_password
+    }
+
     ip_config {
       ipv4 {
         address = var.ip_address

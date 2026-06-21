@@ -20,3 +20,9 @@ variable "node_name" {
   description = "Sanal makinelerin kurulacağı Proxmox Node adı"
   default     = "proxmox"
 }
+
+variable "vm_password" {
+  type        = string
+  description = "Ubuntu sanal makineleri için geçici kullanıcı şifresi"
+  sensitive   = true
+}

@@ -1,4 +1,10 @@
 terraform {
+  cloud {
+    organization = "AcemiBirligi"
+    workspaces {
+      name = "Terraform-CI"
+    }
+  }
   required_providers {
     proxmox = {
       source  = "bpg/proxmox"
