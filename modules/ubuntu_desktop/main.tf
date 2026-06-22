@@ -60,7 +60,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
   scsi_hardware = "virtio-scsi-single"
   
   disk {
-    datastore_id = "nvme2"
+    datastore_id = "local-lvm"
     interface    = "scsi0"
     size         = 300
     iothread     = true
@@ -68,7 +68,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
   }
   
   efi_disk {
-    datastore_id      = "nvme2"
+    datastore_id      = "local-lvm"
     type              = "4m"
     pre_enrolled_keys = true
   }
