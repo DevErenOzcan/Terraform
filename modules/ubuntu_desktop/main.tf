@@ -44,9 +44,9 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
   bios      = "ovmf"
   
   cpu {
-    cores   = 12
+    cores   = 14
     sockets = 1
-    type    = "host"
+    type    = "x86-64-v2-AES"
   }
   
   memory {
@@ -60,15 +60,15 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
   scsi_hardware = "virtio-scsi-single"
   
   disk {
-    datastore_id = "local-lvm"
+    datastore_id = "lvm2"
     interface    = "scsi0"
-    size         = 300
+    size         = 200
     iothread     = true
     file_format  = "raw"
   }
   
   efi_disk {
-    datastore_id      = "local-lvm"
+    datastore_id      = "lvm2"
     type              = "4m"
     pre_enrolled_keys = true
   }
@@ -86,12 +86,12 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
     firewall    = true
   }
   
-  usb { host = "1-3" }
-  usb { host = "1-4" }
-  usb { host = "3-2" }
-  usb { host = "3-3" }
-  usb { host = "3-4" }
-  usb { host = "1-2" }
+  usb { host = "1a81:2232" }
+  usb { host = "048d:c963" }
+  usb { host = "048d:c965" }
+  usb { host = "1a2c:4c5e" }
+  usb { host = "13d3:56ff" }
+  usb { host = "0489:e0cd" }
   
   hostpci {
     device = "hostpci0"
@@ -102,37 +102,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
   
   hostpci {
     device = "hostpci1"
-    id     = "0000:01:00"
-    pcie   = true
-  }
-  
-  hostpci {
-    device = "hostpci2"
-    id     = "0000:06:00.1"
-    pcie   = true
-  }
-  
-  hostpci {
-    device = "hostpci3"
-    id     = "0000:06:00.2"
-    pcie   = true
-  }
-  
-  hostpci {
-    device = "hostpci4"
-    id     = "0000:06:00.5"
-    pcie   = true
-  }
-  
-  hostpci {
-    device = "hostpci5"
-    id     = "0000:06:00.6"
-    pcie   = true
-  }
-  
-  hostpci {
-    device = "hostpci6"
-    id     = "0000:03:00.0"
+    id     = "0000:01:00.0"
     pcie   = true
   }
   
