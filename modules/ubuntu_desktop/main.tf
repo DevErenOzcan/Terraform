@@ -43,6 +43,10 @@ resource "proxmox_virtual_environment_vm" "ubuntu_desktop" {
   machine   = "q35"
   bios      = "ovmf"
   
+  operating_system {
+    type = "l26"
+  }
+  
   cpu {
     cores   = 14
     sockets = 1
